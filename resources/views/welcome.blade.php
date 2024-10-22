@@ -29,7 +29,7 @@
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
                 <img src="{{ asset('images/home/' . $image) }}" class="d-block w-100" alt="Header Carousel Image" style="height: 400px; object-fit: cover; border-radius: 20px;">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="text-5xl font-bold text-white">Empowering Innovations With Cutting-Edge Engineering Solutions For All</h1>
+                    <h1 class="text-5xl font-bold text-white">Cutting Edge Engineering Solutions For All</h1>
                     <a href="#" class="mt-6 inline-block bg-[#A3CA33] text-white px-6 py-3 rounded-full text-lg">Get Started Today</a>
                 </div>
             </div>
