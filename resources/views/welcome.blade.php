@@ -9,6 +9,11 @@
         background-color: #333333; /* Slightly lighter gray than navbar */
     }
 
+    h1,h2,h3,a, {
+        font-family: 'Norwester', sans-serif;
+        text-transform: uppercase;
+    }
+
     .section {
         background-color: #f0f0f0; /* Light grey for sections to contrast */
         border-radius: 20px; /* Match the header rounding */
@@ -22,17 +27,27 @@
     }
 </style>
 
+
+
+
+
+
+<!-- Spacing Below Carousel Header -->
+<div style="height: 20px;"></div> <!-- Increased space for more padding -->
+
 <!-- Image Carousel Header with Fixed Height -->
-<div id="carouselHeader" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
-    <div class="carousel-inner" style="height: 400px;">
+<div id="carouselHeader" class="carousel slide carousel-fade max-w-7xl mx-auto" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner" style="height: 550px;">
         @foreach($images as $index => $image)
-            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <img src="{{ asset('images/home/' . $image) }}" class="d-block w-100" alt="Header Carousel Image" style="height: 400px; object-fit: cover; border-radius: 20px;">
-                <div class="carousel-caption d-none d-md-block">
-                    <h1 class="text-5xl font-bold text-white">Cutting Edge Engineering Solutions For All</h1>
-                    <a href="#" class="mt-6 inline-block bg-[#A3CA33] text-white px-6 py-3 rounded-full text-lg">Get Started Today</a>
+        <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+            <img src="{{ asset('images/home/' . $image) }}" class="d-block w-100" alt="Header Carousel Image" style="height: 550px; object-fit: cover; border-radius: 20px;">
+            <div class="carousel-caption d-flex flex-column justify-content-center align-items-center mb-8" style="height: 100%; text-align: center;">
+                <div class="rounded-2xl mb-4" style="padding: 15px; margin-top: auto; margin-bottom: auto;">
+                    <h1 class="text-5xl font-bold text-white uppercase">Cutting Edge Engineering Solutions For All</h1>
                 </div>
+                <a href="/contact-us" class="mt-4 inline-block bg-[#A3CA33] text-white px-8 py-4 rounded-full text-xl">Get Started Today</a>
             </div>
+        </div>
         @endforeach
     </div>
     <a class="carousel-control-prev" href="#carouselHeader" role="button" data-slide="prev">
@@ -45,14 +60,21 @@
     </a>
 </div>
 
+
+
+
+
+
+
+
 <!-- Spacing Below Carousel Header -->
 <div style="height: 20px;"></div> <!-- Increased space for more padding -->
 
 <!-- Services Section -->
 <!-- Services Section -->
-<section class="bg-white rounded-2xl" style="padding: 1.5rem 1.5rem;">
+<section class="bg-dark rounded-2xl max-w-7xl mx-auto" style="padding: 1.5rem 1.5rem;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Our Services</h2>
+        <h2 class="text-center text-3xl font-extrabold text-white mb-6">OUR SERVICES</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> <!-- Adjusted to 2x2 grid -->
             <div class="bg-white border border-[#A3CA33] p-6 rounded-2xl shadow-md">
                 <h3 class="text-xl font-semibold text-[#A3CA33]">Setting Out</h3>
@@ -72,7 +94,7 @@
             <div class="bg-white border border-[#A3CA33] p-6 rounded-2xl shadow-md">
                 <h3 class="text-xl font-semibold text-[#A3CA33]">Tank Analysis</h3>
                 <p class="mt-2 text-gray-600 text-sm">Our tank analysis services focus on delivering precise measurements and evaluations for industrial storage tanks, helping ensure safe and efficient operations.</p>
-                <a href="{{ route('volume-calculations') }}" class="mt-4 inline-block bg-[#A3CA33] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#89b82a] transition-colors duration-300">Learn More</a>
+                <a href="{{ route('tank-analysis') }}" class="mt-4 inline-block bg-[#A3CA33] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[#89b82a] transition-colors duration-300">Learn More</a>
             </div>
         </div>
     </div>
@@ -83,21 +105,25 @@
 <div style="height: 20px;"></div> <!-- Ensure spacing between sections -->
 
 <!-- Testimonials Section -->
-<section class="bg-white rounded-2xl shadow-md py-6">
+<section class="bg-dark rounded-2xl py-6 max-w-7xl mx-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Testimonials</h2>
+        <h2 class="text-center text-3xl font-extrabold text-white mb-6">TESTAMONIALS</h2>
         <div class="testimonials-carousel">
             @foreach($clients as $client)
                 @if(!empty($client->testimonial))
-                    <div class="testimonial p-6 rounded-2xl shadow-md">
-                        <p class="text-lg font-semibold text-[#A3CA33]">"{{ $client->testimonial }}"</p>
-                        <p class="mt-4 text-gray-600">- {{ $client->name }}</p>
+                    <div class="testimonial p-6 rounded-2xl bg-white mr-6 ml-6 relative" style="min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <!-- Limit the testimonial to 100 characters and add "..." -->
+                        <p class="text-lg font-semibold text-gray-600">
+                            "{{ \Illuminate\Support\Str::limit($client->testimonial, 150, '...') }}"
+                        </p>
+                        <p class="text-[#A3CA33] absolute bottom-4 right-4">- {{ $client->name }}</p>
                     </div>
                 @endif
             @endforeach
         </div>
     </div>
 </section>
+
 
 <script>
     $(document).ready(function(){
@@ -126,6 +152,11 @@
 </script>
 
 <style>
+
+    .text-primary {
+        color: #A3CA33;
+    }
+
     .testimonials-carousel {
         display: flex;
         justify-content: center; /* Center the carousel */

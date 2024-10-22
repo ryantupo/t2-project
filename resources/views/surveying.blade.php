@@ -23,16 +23,17 @@
 </style>
 
 <!-- Image Carousel Header with Fixed Height -->
-<div id="carouselSurveying" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+<!-- Image Carousel Header with Fixed Height -->
+<div id="carouselSurveying" class="carousel slide carousel-fade max-w-7xl mx-auto" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner" style="height: 600px;">
-        @for ($i = 1; $i <= 5; $i++)
-            <div class="carousel-item {{ $i === 1 ? 'active' : '' }}">
-                <img src="{{ asset('images/surveying/Surveying - ' . $i . '.PNG') }}" class="d-block w-100" alt="Surveying Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+        @foreach ($imageNames as $index => $image)
+            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                <img src="{{ asset('images/surveying/' . $image) }}" class="d-block w-100" alt="Surveying Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="text-5xl font-bold text-white">Expert Surveying Services</h1>
+                    <h1 class="text-5xl font-bold text-white">Professional Surveying Services</h1>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
     <a class="carousel-control-prev" href="#carouselSurveying" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -44,11 +45,12 @@
     </a>
 </div>
 
+
 <!-- Spacing Below Carousel Header -->
-<div style="height: 10px;"></div>
+<div style="height: 20px;"></div> <!-- Increased space for more padding -->
 
 <!-- Surveying Services Section -->
-<section class="bg-gray-100 rounded-lg shadow-md" style="padding: 2rem; border-radius: 15px;">
+<section class="bg-gray-100 rounded-lg shadow-md max-w-7xl mx-auto" style="padding: 2rem; border-radius: 15px;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Our Surveying Services</h2>
         <p class="text-lg text-gray-600 mb-4">T2 Engineering have a meticulous approach to surveying and take pride in the services we provide. Our surveying services include but are not limited to:</p>

@@ -29,16 +29,16 @@
 </style>
 
 <!-- Image Carousel Header with Fixed Height -->
-<div id="carouselSettingOut" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
+<div id="carouselSettingOut" class="carousel slide carousel-fade max-w-7xl mx-auto" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner" style="height: 600px;">
-        @for ($i = 1; $i <= 5; $i++)
-            <div class="carousel-item {{ $i === 1 ? 'active' : '' }}">
-                <img src="{{ asset('images/setting_out/setting out - ' . $i . '.jpg') }}" class="d-block w-100" alt="Setting Out Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+        @foreach ($imageNames as $index => $image)
+            <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                <img src="{{ asset('images/setting_out/' . $image) }}" class="d-block w-100" alt="Setting Out Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="text-5xl font-bold text-white">Professional Setting Out Services</h1>
                 </div>
             </div>
-        @endfor
+        @endforeach
     </div>
     <a class="carousel-control-prev" href="#carouselSettingOut" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -50,12 +50,13 @@
     </a>
 </div>
 
+
 <!-- Spacing Below Carousel Header -->
-<div style="height: 10px;"></div>
+<div style="height: 20px;"></div>
 
 <!-- Setting Out Services Section -->
-<div class="main-content">
-    <section class="bg-gray-100 rounded-lg shadow-md section">
+<div class="main-content max-w-7xl mx-auto">
+    <section class="bg-gray-100 rounded-lg shadow-md section ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Our Setting Out Services</h2>
             <p class="text-lg text-gray-600 mb-4">T2 Engineering is fully versed in all areas of setting out. Our setting out services include but are not limited to:</p>

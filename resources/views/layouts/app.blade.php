@@ -44,6 +44,15 @@
             flex-direction: column;
         }
 
+        h1,
+        h2,
+        h3,
+        a {
+            font-family: 'Norwester', sans-serif;
+            text-transform: uppercase;
+
+        }
+
         .bg-dark {
             background-color: #1f1f1f;
         }
@@ -258,6 +267,8 @@
                 <a href="/setting-out-engineer" class="hover:bg-secondary hover:text-primary">Setting Out Engineer</a>
                 <a href="/surveying" class="hover:bg-secondary hover:text-primary">Surveying</a>
                 <a href="/quality-control" class="hover:bg-secondary hover:text-primary">Scanning *Coming soon*</a>
+                <a href="/tank-analysis" class="hover:bg-secondary hover:text-primary">Tank Analysis *Coming soon*</a>
+
                 {{--  <a href="/volume-calculations" class="hover:bg-secondary hover:text-primary">Volume Calculations</a>  --}}
                 {{--  <a href="/equipment" class="hover:bg-secondary hover:text-primary">Equipment</a>  --}}
                 <a href="/about-us" class="hover:bg-secondary hover:text-primary">About Us</a>
@@ -279,6 +290,10 @@
                 <a href="/quality-control"
                     class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Scanning
                     *Coming soon*</a>
+                <a href="/tank-analysis"
+                    class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Tank Analysis
+                    *Coming soon*</a>
+
                 {{--  <a href="/volume-calculations"
                     class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Volume
                     Calculations</a>  --}}
