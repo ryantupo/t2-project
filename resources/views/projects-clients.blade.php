@@ -12,17 +12,18 @@
         </p>
 
         <!-- Logos Section -->
-        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 place-items-center">
+        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             @foreach($clients as $client)
                 @if($client->logo_path)
                     <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md">
                         <img src="{{ Storage::url($client->logo_path) }}"
                              alt="{{ $client->name }} Logo"
-                             class="max-w-[400px] max-h-[400px] object-contain" style="max-width:150px;">
+                             class="max-w-[150px] max-h-[150px] object-contain">
                     </div>
                 @endif
             @endforeach
         </div>
+
 
 
 
