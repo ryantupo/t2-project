@@ -15,16 +15,14 @@
         <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             @foreach($clients as $client)
                 @if($client->logo_path)
-                    <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md">
+                    <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md h-[150px] w-[150px] mx-auto">
                         <img src="{{ Storage::url($client->logo_path) }}"
                              alt="{{ $client->name }} Logo"
-                             class="max-w-[150px] max-h-[150px] object-contain">
+                             class="max-w-full max-h-full object-contain">
                     </div>
                 @endif
             @endforeach
         </div>
-
-
 
 
         <!-- Testimonials Section -->
@@ -37,7 +35,7 @@
                             <div class="mb-4 flex items-center">
                                 <img src="{{ Storage::url($client->logo_path) }}"
                                      alt="{{ $client->name }} Logo"
-                                     class="max-w-[100px] max-h-[100px] object-contain mr-4" style="max-width:100px;">
+                                     class="h-[100px] w-[100px] object-contain mr-4">
                                 <div>
                                     <h3 class="text-lg font-bold text-gray-800">{{ $client->name }}</h3>
                                     <p class="text-sm text-gray-600">{{ $client->role ?? '' }}</p>
@@ -52,8 +50,6 @@
                 @endforeach
             </div>
         </div>
-
-
     </div>
 </section>
 @endsection
