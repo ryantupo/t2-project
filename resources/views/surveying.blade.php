@@ -22,15 +22,18 @@
     }
 </style>
 
-<!-- Image Carousel Header with Fixed Height -->
-<!-- Image Carousel Header with Fixed Height -->
-<div id="carouselSurveying" class="carousel slide carousel-fade max-w-7xl mx-auto" data-ride="carousel" data-interval="3000">
-    <div class="carousel-inner" style="height: 600px;">
+<div id="carouselSurveying" class="carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
         @foreach ($imageNames as $index => $image)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <img src="{{ asset('images/surveying/' . $image) }}" class="d-block w-100" alt="Surveying Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                <div class="image-container" style="width: 100%; height: 600px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                    <img src="{{ asset('images/surveying/' . $image) }}"
+                         class="d-block"
+                         alt="Surveying Carousel Image"
+                         style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                </div>
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="text-5xl font-bold text-white">Professional Surveying Services</h1>
+                    {{--  <h1 class="text-5xl font-bold text-white">Professional Surveying Services</h1>  --}}
                 </div>
             </div>
         @endforeach
@@ -43,7 +46,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+ </div>
 
 
 <!-- Spacing Below Carousel Header -->
@@ -52,7 +55,7 @@
 <!-- Surveying Services Section -->
 <section class="bg-gray-100 rounded-lg shadow-md max-w-7xl mx-auto" style="padding: 2rem; border-radius: 15px;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Our Surveying Services</h2>
+        <h1 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Professional Surveying Services</h1>
         <p class="text-lg text-gray-600 mb-4">T2 Engineering have a meticulous approach to surveying and take pride in the services we provide. Our surveying services include but are not limited to:</p>
         <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
             <li>Topographical surveys.</li>

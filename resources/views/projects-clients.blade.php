@@ -5,28 +5,52 @@
 @section('content')
 <section class="py-16 bg-[#333333]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-extrabold text-white text-center">Projects - Clients</h1>
-        <p class="mt-4 text-lg text-gray-300 text-center">Details about the clients we work with on various projects.</p>
+        <!-- Title Section -->
+        <h1 class="text-3xl font-extrabold text-white text-center">Explore Our Customer Success Stories</h1>
+        <p class="mt-4 text-lg text-gray-300 text-center">
+            Showcasing the diversity and quality of our construction endeavors. From innovative solutions to creative projects, we bring ideas to life. Explore our portfolio and see the results of our dedication and hard work.
+        </p>
 
-        <div class="mt-8">
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                @foreach($clients as $client)
-                    <div class="bg-white p-6 rounded-2xl shadow-lg transition-transform hover:scale-105 duration-300">
-                        @if($client->logo_path)
-                            <img src="{{ Storage::url($client->logo_path) }}" alt="Client Photo" class="client-photo w-full h-72 object-cover rounded-t-xl">
-                        @endif
-                        <h2 class="text-xl font-bold mt-4 text-gray-800">{{ $client->name }}</h2>
-                        <p class="mt-2 text-gray-700">{{ $client->description }}</p>
-                        @if($client->testimonial)
-                            <div class="mt-4 border-t pt-4">
-                                <h3 class="text-lg font-semibold text-gray-800">Testimonial</h3>
-                                <p class="mt-2 text-gray-600 italic">“{{ $client->testimonial }}”</p>
-                            </div>
-                        @endif
+        <!-- Logos Section -->
+        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5 place-items-center">
+            @foreach($clients as $client)
+                @if($client->logo_path)
+                    <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md">
+                        <img src="{{ Storage::url($client->logo_path) }}"
+                             alt="{{ $client->name }} Logo"
+                             class="max-h-16 object-contain">
                     </div>
+                @endif
+            @endforeach
+        </div>
+
+
+        <!-- Testimonials Section -->
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold text-white text-center mb-8">What Our Clients Say</h2>
+            <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+                @foreach($clients as $client)
+                    @if($client->testimonial)
+                        <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-200 hover:border-gray-400 transition duration-300">
+                            <div class="mb-4 flex items-center">
+                                <img src="{{ Storage::url($client->logo_path) }}"
+                                     alt="{{ $client->name }} Logo"
+                                     class="h-36 w-36 object-contain mr-4">
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-800">{{ $client->name }}</h3>
+                                    <p class="text-sm text-gray-600">{{ $client->role ?? '' }}</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700">{{ $client->description }}</p>
+                            <blockquote class="mt-4 text-gray-600 italic border-t pt-4">
+                                "{{ $client->testimonial }}"
+                            </blockquote>
+                        </div>
+                    @endif
                 @endforeach
             </div>
         </div>
+
     </div>
 </section>
 @endsection

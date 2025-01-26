@@ -264,7 +264,7 @@
             </div>
             <div class="desktop-menu">
                 {{--  <a href="/" class="hover:bg-secondary hover:text-primary">Home</a>  --}}
-                <a href="/setting-out-engineer" class="hover:bg-secondary hover:text-primary">Setting Out Engineer</a>
+                <a href="/setting-out-engineer" class="hover:bg-secondary hover:text-primary">Setting Out</a>
                 <a href="/surveying" class="hover:bg-secondary hover:text-primary">Surveying</a>
                 <a href="/quality-control" class="hover:bg-secondary hover:text-primary">Scanning *Coming soon*</a>
                 <a href="/tank-analysis" class="hover:bg-secondary hover:text-primary">Tank Analysis *Coming soon*</a>

@@ -22,13 +22,16 @@
     }
 </style>
 
-<!-- Image Carousel Header with Fixed Height -->
-<div id="carouselAboutUs" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000">
-    <div class="carousel-inner" style="height: 600px;">
+<div id="carouselAboutUs" class="carousel slide carousel-fade bg-dark" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
         @for ($i = 1; $i <= 3; $i++)
             <div class="carousel-item {{ $i === 1 ? 'active' : '' }}">
-                {{--  add in images when have them from jack  --}}
-                <img src="{{ asset('images/about-us/about-' . $i . '.jpg') }}" class="d-block w-100" alt="About Us Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                <div class="image-container" style="width: 100%; height: 600px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                    <img src="{{ asset('images/about-us/about-' . $i . '.jpg') }}"
+                         class="d-block"
+                         alt="About Us Carousel Image"
+                         style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                </div>
                 <div class="carousel-caption d-none d-md-block">
                     <h1 class="text-5xl font-bold text-white">About T2 Engineering</h1>
                 </div>
@@ -43,7 +46,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+ </div>
 
 <!-- Spacing Below Carousel Header -->
 <div style="height: 10px;"></div>

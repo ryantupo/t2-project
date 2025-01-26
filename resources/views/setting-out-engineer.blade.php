@@ -28,14 +28,18 @@
     }
 </style>
 
-<!-- Image Carousel Header with Fixed Height -->
-<div id="carouselSettingOut" class="carousel slide carousel-fade max-w-7xl mx-auto" data-ride="carousel" data-interval="3000">
-    <div class="carousel-inner" style="height: 600px;">
+<div id="carouselSettingOut" class="carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
         @foreach ($imageNames as $index => $image)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <img src="{{ asset('images/setting_out/' . $image) }}" class="d-block w-100" alt="Setting Out Carousel Image" style="height: 600px; object-fit: cover; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                <div class="image-container" style="width: 100%; height: 600px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                    <img src="{{ asset('images/setting_out/' . $image) }}"
+                         class="d-block"
+                         alt="Setting Out Carousel Image"
+                         style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                </div>
                 <div class="carousel-caption d-none d-md-block">
-                    <h1 class="text-5xl font-bold text-white">Professional Setting Out Services</h1>
+                    {{--  <h1 class="text-5xl font-bold text-white">Professional Setting Out Services</h1>  --}}
                 </div>
             </div>
         @endforeach
@@ -58,7 +62,7 @@
 <div class="main-content max-w-7xl mx-auto">
     <section class="bg-gray-100 rounded-lg shadow-md section ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Our Setting Out Services</h2>
+            <h1 class="text-center text-3xl font-extrabold text-gray-900 mb-6">Professional Setting Out Services</h1>
             <p class="text-lg text-gray-600 mb-4">T2 Engineering is fully versed in all areas of setting out. Our setting out services include but are not limited to:</p>
             <ul class="list-disc list-inside text-gray-700 text-lg space-y-2">
                 <li>Setting out structures and foundations, including bolts and crane rails.</li>

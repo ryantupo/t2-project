@@ -35,12 +35,16 @@
 <!-- Spacing Below Carousel Header -->
 <div style="height: 20px;"></div> <!-- Increased space for more padding -->
 
-<!-- Image Carousel Header with Fixed Height -->
-<div id="carouselHeader" class="carousel slide carousel-fade max-w-7xl mx-auto" data-ride="carousel" data-interval="3000">
-    <div class="carousel-inner" style="height: 550px;">
+<div id="carouselHeader" class="carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
+    <div class="carousel-inner">
         @foreach($images as $index => $image)
         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-            <img src="{{ asset('images/home/' . $image) }}" class="d-block w-100" alt="Header Carousel Image" style="height: 550px; object-fit: cover; border-radius: 20px;">
+            <div class="image-container" style="width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <img src="{{ asset('images/home/' . $image) }}"
+                     class="d-block"
+                     alt="Header Carousel Image"
+                     style="width: 100%; height: 100%; object-fit: contain; border-radius: 20px;">
+            </div>
             <div class="carousel-caption d-flex flex-column justify-content-center align-items-center mb-8" style="height: 100%; text-align: center;">
                 <div class="rounded-2xl mb-4" style="padding: 15px; margin-top: auto; margin-bottom: auto;">
                     <h1 class="text-5xl font-bold text-white uppercase">Cutting Edge Engineering Solutions For All</h1>
@@ -58,7 +62,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+ </div>
 
 
 
