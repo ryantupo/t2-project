@@ -18,7 +18,7 @@
                     <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md">
                         <img src="{{ Storage::url($client->logo_path) }}"
                              alt="{{ $client->name }} Logo"
-                             class="max-w-[400px] max-h-[400px] object-contain">
+                             class="max-w-[400px] max-h-[400px] object-contain" style="max-width:400px;">
                     </div>
                 @endif
             @endforeach
@@ -36,7 +36,7 @@
                             <div class="mb-4 flex items-center">
                                 <img src="{{ Storage::url($client->logo_path) }}"
                                      alt="{{ $client->name }} Logo"
-                                     class="max-w-[100px] max-h-[100px] object-contain mr-4">
+                                     class="max-w-[100px] max-h-[100px] object-contain mr-4" style="max-width:100px;">
                                 <div>
                                     <h3 class="text-lg font-bold text-gray-800">{{ $client->name }}</h3>
                                     <p class="text-sm text-gray-600">{{ $client->role ?? '' }}</p>
