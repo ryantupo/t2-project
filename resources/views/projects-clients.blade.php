@@ -18,7 +18,7 @@
                     <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md">
                         <img src="{{ Storage::url($client->logo_path) }}"
                              alt="{{ $client->name }} Logo"
-                             class="max-w-[400px] max-h-[400px] object-contain" style="max-width:400px;">
+                             class="max-w-[400px] max-h-[400px] object-contain" style="max-width:150px;">
                     </div>
                 @endif
             @endforeach
