@@ -12,20 +12,17 @@
         </p>
 
         <!-- Logos Section -->
-        <div class="mt-12 flex justify-center">
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
-                @foreach($clients as $client)
-                    @if($client->logo_path)
-                        <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md h-[150px] w-[150px] mx-auto">
-                            <img src="{{ Storage::url($client->logo_path) }}"
-                                 alt="{{ $client->name }} Logo"
-                                 class="max-w-full max-h-full object-contain">
-                        </div>
-                    @endif
-                @endforeach
-            </div>
+        <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
+            @foreach($clients as $client)
+                @if($client->logo_path)
+                    <div class="flex items-center justify-center p-4 bg-white rounded-xl shadow-md h-[150px] w-[150px] mx-auto">
+                        <img src="{{ Storage::url($client->logo_path) }}"
+                             alt="{{ $client->name }} Logo"
+                             class="max-w-full max-h-full object-contain">
+                    </div>
+                @endif
+            @endforeach
         </div>
-
 
 
         <!-- Testimonials Section -->
