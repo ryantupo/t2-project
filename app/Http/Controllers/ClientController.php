@@ -34,7 +34,7 @@ class ClientController extends Controller
             'client_photo' => 'nullable|image',
             'client_name' => 'required',
             'description' => 'required',
-            'testimonial' => 'required'
+            'testimonial' => 'nullable|'
         ]);
 
         $client = new Client();
@@ -51,7 +51,7 @@ class ClientController extends Controller
 
         $client->save();
 
-        return redirect()->route('clients.index');
+        return redirect()->route('clients.index')->with('success', 'Client added successfully!');
     }
 
 

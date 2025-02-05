@@ -23,7 +23,7 @@
         display: none; /* Initially hidden */
         border-radius: 10px;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow around the preview */
-    }
+    {{--  }  --}}
 </style>
 
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -48,7 +48,7 @@
                 <textarea name="description" id="description" rows="4" required class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client's description"></textarea>
 
                 <label for="testimonial" class="block text-gray-700 font-semibold mt-2 mb-2">Testimonial</label>
-                <textarea name="testimonial" id="testimonial" rows="4" required class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client's testimonial"></textarea>
+                <textarea name="testimonial" id="testimonial" rows="4" class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client's testimonial"></textarea>
             </div>
         </div>
 

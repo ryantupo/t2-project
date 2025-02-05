@@ -11,6 +11,16 @@
             Showcasing the diversity and quality of our construction endeavors. From innovative solutions to creative projects, we bring ideas to life. Explore our portfolio and see the results of our dedication and hard work.
         </p>
 
+        @auth
+        <div class="text-right">
+            <a href="{{ route('clients.index') }}" class="bg-[#A3CA33] text-white px-6 py-3 rounded-full text-lg shadow-md hover:shadow-lg transition-shadow duration-300 inline-block">
+                Admin View Clients
+            </a>
+        </div>
+    @endauth
+
+
+
         <!-- Logos Section -->
         <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
             @foreach($clients as $client)
