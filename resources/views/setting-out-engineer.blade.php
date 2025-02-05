@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Setting Out Engineer')
+@section('title', 'Setting Out')
 
 @section('content')
 <!-- Main Content Background Color -->
@@ -28,15 +28,14 @@
     }
 </style>
 
-<div id="carouselSettingOut" class="carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
+<div id="carouselSettingOut" class="rounded-2xl overflow-hidden carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
         @foreach ($imageNames as $index => $image)
             <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                <div class="image-container" style="width: 100%; height: 600px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+                <div class="image-container">
                     <img src="{{ asset('images/setting_out/' . $image) }}"
-                         class="d-block"
-                         alt="Setting Out Carousel Image"
-                         style="width: 100%; height: 100%; object-fit: contain; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                         class="d-block w-full"
+                         alt="Setting Out Carousel Image">
                 </div>
                 <div class="carousel-caption d-none d-md-block">
                     {{--  <h1 class="text-5xl font-bold text-white">Professional Setting Out Services</h1>  --}}
@@ -53,6 +52,32 @@
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+<style>
+    .image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        max-height: 650px;
+        object-fit: cover;
+    }
+
+    /* Remove individual image border radius since container is now rounded */
+    @media (max-width: 640px) {
+        .carousel-item img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+    }
+</style>
 
 
 <!-- Spacing Below Carousel Header -->

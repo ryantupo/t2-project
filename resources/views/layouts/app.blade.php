@@ -283,8 +283,7 @@
                 {{--  <a href="/" class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Home</a>  --}}
 
                 <a href="/setting-out-engineer"
-                    class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Setting Out
-                    Engineer</a>
+                    class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Setting Out</a>
                 <a href="/surveying"
                     class="text-light block px-3 py-2 rounded-md text-base font-medium hover:text-primary">Surveying</a>
                 <a href="/quality-control"

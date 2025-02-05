@@ -32,22 +32,26 @@
 
 
 
-<!-- Spacing Below Carousel Header -->
-<div style="height: 20px;"></div> <!-- Increased space for more padding -->
-
-<div id="carouselHeader" class="carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
+<div id="carouselHeader" class="rounded-2xl overflow-hidden carousel slide carousel-fade max-w-7xl mx-auto bg-dark" data-ride="carousel" data-interval="3000">
     <div class="carousel-inner">
         @foreach($images as $index => $image)
         <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-            <div class="image-container" style="width: 100%; height: 550px; display: flex; justify-content: center; align-items: center; overflow: hidden;">
+            <div class="image-container">
                 <img src="{{ asset('images/home/' . $image) }}"
-                     class="d-block"
-                     alt="Header Carousel Image"
-                     style="width: 100%; height: 100%; object-fit: contain; border-radius: 20px;">
+                     class="d-block w-full"
+                     alt="Header Carousel Image">
             </div>
             <div class="carousel-caption d-flex flex-column justify-content-center align-items-center mb-8" style="height: 100%; text-align: center;">
                 <div class="rounded-2xl mb-4" style="padding: 15px; margin-top: auto; margin-bottom: auto;">
-                    <h1 class="text-5xl font-bold text-white uppercase">Cutting Edge Engineering Solutions For All</h1>
+                    <!-- Updated h1 to h3 and added responsive class -->
+                    {{--  <h1 class="text-5xl sm:text-7xl font-bold text-white uppercase mb-10">
+                        Cutting Edge Engineering <br>Solutions For All
+                    </h1>  --}}
+
+                    <h3 class="text-3xl sm:text-7xl font-bold text-white uppercase mb-10">
+                        Cutting Edge Engineering <br class="hidden sm:block">Solutions For All
+                    </h3>
+
                 </div>
                 <a href="/contact-us" class="mt-4 inline-block bg-[#A3CA33] text-white px-8 py-4 rounded-full text-xl">Get Started Today</a>
             </div>
@@ -62,7 +66,34 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
- </div>
+</div>
+
+<style>
+    .image-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .carousel-item img {
+        width: 100%;
+        height: auto;
+        max-height: 650px;
+        object-fit: cover;
+    }
+
+    /* Remove individual image border radius since container is now rounded */
+    @media (max-width: 640px) {
+        .carousel-item img {
+            width: 100%;
+            height: 550px;
+            object-fit: cover;
+        }
+    }
+</style>
+
 
 
 
