@@ -111,16 +111,29 @@
 <!-- Testimonials Section -->
 <section class="bg-dark rounded-2xl py-6 max-w-7xl mx-auto">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 class="text-center text-3xl font-extrabold text-white mb-6">TESTAMONIALS</h2>
+        <h2 class="text-center text-3xl font-extrabold text-white mb-6">TESTIMONIALS</h2>
         <div class="testimonials-carousel">
             @foreach($clients as $client)
                 @if(!empty($client->testimonial))
                     <div class="testimonial p-6 rounded-2xl bg-white mr-6 ml-6 relative" style="min-height: 200px; display: flex; flex-direction: column; justify-content: space-between;">
-                        <!-- Limit the testimonial to 100 characters and add "..." -->
+                        <!-- Limit the testimonial to 150 characters and add "..." -->
                         <p class="text-lg font-semibold text-gray-600">
                             "{{ \Illuminate\Support\Str::limit($client->testimonial, 150, '...') }}"
                         </p>
+
                         <p class="text-[#A3CA33] absolute bottom-4 right-4">- {{ $client->name }}</p>
+                        <!-- Testimonial Author and Job Section -->
+                        @if($client->testimonial_author || $client->testimonial_author_job)
+                            <div class="mt-4 text-sm text-gray-500">
+                                @if($client->testimonial_author)
+                                    <p class="text-gray-700 font-medium">- {{ $client->testimonial_author }}</p>
+                                @endif
+                                @if($client->testimonial_author_job)
+                                    <p class="text-gray-400">{{ $client->testimonial_author_job }}</p>
+                                @endif
+                            </div>
+                        @endif
+
                     </div>
                 @endif
             @endforeach

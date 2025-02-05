@@ -6,7 +6,7 @@
 <section class="py-16 bg-[#333333]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Title Section -->
-        <h1 class="text-3xl font-extrabold text-white text-center">Explore Our Customer Success Stories</h1>
+        <h1 class="text-3xl font-extrabold text-white text-center">Our Clients</h1>
 
         @auth
         <div class="text-right">
