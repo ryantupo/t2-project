@@ -44,13 +44,12 @@
             <div class="carousel-caption d-flex flex-column justify-content-center align-items-center mb-8" style="height: 100%; text-align: center;">
                 <div class="rounded-2xl mb-4" style="padding: 15px; margin-top: auto; margin-bottom: auto;">
                     <!-- Updated h1 to h3 and added responsive class -->
-                    {{--  <h1 class="text-5xl sm:text-7xl font-bold text-white uppercase mb-10">
-                        Cutting Edge Engineering <br>Solutions For All
-                    </h1>  --}}
 
-                    <h3 class="text-3xl sm:text-7xl font-bold text-white uppercase mb-10">
+
+                    <h3 class="text-3xl sm:text-7xl font-bold text-white uppercase mb-10 !text-7xl">
                         Cutting Edge Engineering <br class="hidden sm:block">Solutions For All
                     </h3>
+
 
                 </div>
                 <a href="/contact-us" class="mt-4 inline-block bg-[#A3CA33] text-white px-8 py-4 rounded-full text-xl">Get Started Today</a>
