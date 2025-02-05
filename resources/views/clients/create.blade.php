@@ -44,8 +44,17 @@
                 <label for="client_name" class="block text-gray-700 font-semibold mb-2">Client Name</label>
                 <input type="text" name="client_name" id="client_name" required class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client name">
 
-                <label for="description" class="block text-gray-700 font-semibold mt-4 mb-2">Description</label>
-                <textarea name="description" id="description" rows="4" required class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client's description"></textarea>
+                {{--  <label for="description" class="block text-gray-700 font-semibold mt-4 mb-2">Description</label>
+                <textarea name="description" id="description" rows="4" required class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client's description"></textarea>  --}}
+
+
+                <!-- New Fields: Testimonial Author & Job -->
+                <label for="testimonial_author" class="block text-gray-700 font-semibold mt-4 mb-2">Testimonial Author</label>
+                <input type="text" name="testimonial_author" id="testimonial_author" class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter author's name">
+
+                <label for="testimonial_author_job" class="block text-gray-700 font-semibold mt-4 mb-2">Testimonial Author's Job Title</label>
+                <input type="text" name="testimonial_author_job" id="testimonial_author_job" class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter author's job title">
+
 
                 <label for="testimonial" class="block text-gray-700 font-semibold mt-2 mb-2">Testimonial</label>
                 <textarea name="testimonial" id="testimonial" rows="4" class="border-2 border-gray-800 rounded-md p-2 w-full text-black" placeholder="Enter client's testimonial"></textarea>

@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Client;
@@ -31,21 +30,25 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'client_photo' => 'nullable|image',
-            'client_name' => 'required',
-            'description' => 'required',
-            'testimonial' => 'nullable|'
+            'client_photo'           => 'nullable|image',
+            'client_name'            => 'required',
+            'description'            => 'required',
+            'testimonial'            => 'nullable',
+            'testimonial_author'     => 'nullable|string|max:255',
+            'testimonial_author_job' => 'nullable|string|max:255',
         ]);
 
-        $client = new Client();
-        $client->name = $request->client_name;
-        $client->description = $request->description;
-        $client->testimonial = $request->testimonial;
+        $client                         = new Client();
+        $client->name                   = $request->client_name;
+        $client->description            = $request->description;
+        $client->testimonial            = $request->testimonial;
+        $client->testimonial_author     = $request->testimonial_author;
+        $client->testimonial_author_job = $request->testimonial_author_job;
 
         // Save client photo
         if ($request->hasFile('client_photo')) {
-            $fileName = time() . '_' . $request->file('client_photo')->getClientOriginalName();
-            $path = $request->file('client_photo')->storeAs('clients', $fileName, 'public');
+            $fileName          = time() . '_' . $request->file('client_photo')->getClientOriginalName();
+            $path              = $request->file('client_photo')->storeAs('clients', $fileName, 'public');
             $client->logo_path = $path; // Save the path relative to 'storage/app/public'
         }
 
@@ -53,8 +56,6 @@ class ClientController extends Controller
 
         return redirect()->route('clients.index')->with('success', 'Client added successfully!');
     }
-
-
 
     public function edit(Client $client)
     {
@@ -64,37 +65,41 @@ class ClientController extends Controller
     public function update(Request $request, Client $client)
     {
         $request->validate([
-            'client_name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'testimonial' => 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'client_name'            => 'required|string|max:255',
+            'description'            => 'required|string',
+            'testimonial'            => 'nullable|string',
+            'testimonial_author'     => 'nullable|string|max:255',
+            'testimonial_author_job' => 'nullable|string|max:255',
+            'logo'                   => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        $client->name = $request->client_name;
-        $client->description = $request->description;
-        $client->testimonial = $request->testimonial;
+        $client->name                   = $request->client_name;
+        $client->description            = $request->description;
+        $client->testimonial            = $request->testimonial;
+        $client->testimonial_author     = $request->testimonial_author;
+        $client->testimonial_author_job = $request->testimonial_author_job;
 
+        // Handle logo update
         if ($request->hasFile('logo')) {
-            // Store new logo and delete old one if it exists
+            // Delete the old logo if it exists
             if ($client->logo_path) {
                 Storage::disk('public')->delete($client->logo_path);
             }
 
-            // Create a file name for the new image
+            // Generate a new file name
             $fileName = time() . '_' . $request->file('logo')->getClientOriginalName();
 
             // Store in the 'images/clients' directory
             $path = $request->file('logo')->storeAs('images/clients', $fileName, 'public');
 
-            // Save the path in the database
-            $client->logo_path = $path; // Save the path relative to 'storage/app/public'
+            // Save new logo path
+            $client->logo_path = $path;
         }
 
         $client->save();
 
         return redirect()->route('clients.index')->with('success', 'Client updated successfully!');
     }
-
 
     public function destroy(Client $client)
     {

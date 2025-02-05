@@ -7,9 +7,6 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Title Section -->
         <h1 class="text-3xl font-extrabold text-white text-center">Explore Our Customer Success Stories</h1>
-        <p class="mt-4 text-lg text-gray-300 text-center">
-            Showcasing the diversity and quality of our construction endeavors. From innovative solutions to creative projects, we bring ideas to life. Explore our portfolio and see the results of our dedication and hard work.
-        </p>
 
         @auth
         <div class="text-right">
@@ -17,9 +14,7 @@
                 Admin View Clients
             </a>
         </div>
-    @endauth
-
-
+        @endauth
 
         <!-- Logos Section -->
         <div class="mt-12 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-5">
@@ -33,7 +28,6 @@
                 @endif
             @endforeach
         </div>
-
 
         <!-- Testimonials Section -->
         <div class="mt-16">
@@ -51,10 +45,21 @@
                                     <p class="text-sm text-gray-600">{{ $client->role ?? '' }}</p>
                                 </div>
                             </div>
-                            <p class="text-gray-700">{{ $client->description }}</p>
                             <blockquote class="mt-4 text-gray-600 italic border-t pt-4">
                                 "{{ $client->testimonial }}"
                             </blockquote>
+
+                            <!-- Author and Job Title Section -->
+                            @if($client->testimonial_author || $client->testimonial_author_job)
+                                <div class="mt-4 border-t pt-4">
+                                    @if($client->testimonial_author)
+                                        <p class="text-gray-700 font-medium">- {{ $client->testimonial_author }}</p>
+                                    @endif
+                                    @if($client->testimonial_author_job)
+                                        <p class="text-gray-500 text-sm">{{ $client->testimonial_author_job }}</p>
+                                    @endif
+                                </div>
+                            @endif
                         </div>
                     @endif
                 @endforeach

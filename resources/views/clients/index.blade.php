@@ -22,12 +22,19 @@
                         <img src="{{ Storage::url($client->logo_path) }}" alt="Client Photo" class="client-photo w-full h-72 object-cover rounded-t-xl">
                     @endif
                     <h2 class="text-xl font-bold mt-4 text-gray-800">{{ $client->name }}</h2>
-                    <p class="mt-2 text-gray-700">{{ $client->description }}</p>
 
                     @if($client->testimonial)
                         <div class="mt-4 border-t pt-4">
                             <h3 class="text-lg font-semibold text-gray-800">Testimonial</h3>
                             <p class="mt-2 text-gray-600 italic">“{{ $client->testimonial }}”</p>
+
+                            @if($client->testimonial_author)
+                                <p class="mt-2 text-gray-700 font-medium">- {{ $client->testimonial_author }}</p>
+                            @endif
+
+                            @if($client->testimonial_author_job)
+                                <p class="text-gray-500 text-sm">{{ $client->testimonial_author_job }}</p>
+                            @endif
                         </div>
                     @endif
 

@@ -38,6 +38,24 @@
                 @enderror
             </div>
 
+            <!-- Testimonial Author -->
+            <div class="mt-4">
+                <label for="testimonial_author" class="block text-sm font-medium text-gray-700">Testimonial Author</label>
+                <input type="text" name="testimonial_author" id="testimonial_author" value="{{ old('testimonial_author', $client->testimonial_author) }}" class="mt-1 block w-full border-2 border-gray-800 rounded-md shadow-md focus:ring-green-500 focus:border-green-500 text-black">
+                @error('testimonial_author')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Testimonial Author Job -->
+            <div class="mt-4">
+                <label for="testimonial_author_job" class="block text-sm font-medium text-gray-700">Author's Job Title</label>
+                <input type="text" name="testimonial_author_job" id="testimonial_author_job" value="{{ old('testimonial_author_job', $client->testimonial_author_job) }}" class="mt-1 block w-full border-2 border-gray-800 rounded-md shadow-md focus:ring-green-500 focus:border-green-500 text-black">
+                @error('testimonial_author_job')
+                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
             <!-- Client Image -->
             <div class="mt-4">
                 <label for="logo" class="block text-sm font-medium text-gray-700">Client Image</label>
